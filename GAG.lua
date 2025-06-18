@@ -3,6 +3,13 @@ local Window = Library.CreateLib("CooperHub | Premium Script", "GrapeTheme")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("AUTO FARM")
 
+local SEEDPOS = CFrame.new(86.59000396728516, 2.999999761581421, -27.00395965576172)
+local SELLPOS = CFrame.new(86.5854721069336, 2.999999761581421, 0.4267842769622803)
+local GEARPOS = CFrame.new(-284.4152526855469, 2.999999761581421, -32.97789764404297)
+local CRATEPOS = CFrame.new(-285.00555419921875, 2.999999761581421, -15.64926815032959)
+local EGGPOS = CFrame.new(-285.143310546875, 2.999999761581421, -0.8999100923538208)
+
+
 local buyfruit = false 
 
 -- buy frit zone
@@ -156,6 +163,26 @@ Section:NewToggle("Auto Machine Honey", "Auto Claim and Input Fruit", function(s
     end
 end)
 
+--UI TOGGLE
+local Tab = Window:NewTab("Menu")
+local Section = Tab:NewSection("Active Menu")
+
+function Fastsell()
+    local OGPOS = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SELLPOS
+    wait(0.2)
+    game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Sell_Inventory"):FireServer()
+    wait(0.2)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGPOS
+
+end
+
+Section:NewButton("Sell Fast", "Teleport to sell and go back", function()
+    print("Clicked")
+    Fastsell()
+end)
+
 --Teleport
 local Tab = Window:NewTab("Teleport")
 local Section = Tab:NewSection("Teleport")
@@ -163,12 +190,6 @@ local Section = Tab:NewSection("Teleport")
 function TP(Pos)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
 end
-
-local SEEDPOS = CFrame.new(86.59000396728516, 2.999999761581421, -27.00395965576172)
-local SELLPOS = CFrame.new(86.5854721069336, 2.999999761581421, 0.4267842769622803)
-local GEARPOS = CFrame.new(-284.4152526855469, 2.999999761581421, -32.97789764404297)
-local CRATEPOS = CFrame.new(-285.00555419921875, 2.999999761581421, -15.64926815032959)
-local EGGPOS = CFrame.new(-285.143310546875, 2.999999761581421, -0.8999100923538208)
 
 Section:NewButton("Seed Shop", "Teleport to seed shop", function()
     print("Clicked")
@@ -194,6 +215,7 @@ Section:NewButton("Egg Shop", "Teleport to egg shop", function()
     print("Clicked")
     TP(EGGPOS)
 end)
+
 
 --UI TOGGLE
 local Tab = Window:NewTab("Miscellaneous")
