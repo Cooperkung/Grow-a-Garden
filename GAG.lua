@@ -16,10 +16,9 @@ local buyfruit = false
 
 local function Fruit()
     local fruits = {
-        "Carrot", "Strawberry", "Blueberry", "Orange Tulip", "Tomato",
-        "Corn", "Daffodil", "Watermelon", "Apple", "Bamboo",
-        "Coconut", "Cactus", "Dragon Fruit", "Mango", "Grape",
-        "Mushroom", "Pepper", "Cacao", "Beanstalk", "Ember lily",
+        "Carrot", "Strawberry", "Blueberry", "Tomato", "Watermelon",
+        "Cauliflower", "Green Apple", "Avocado", "Banana", "Pineapple",
+        "Kiwi", "Bell Pepper", "Prikly Pear", "Loquat", "Feijoa",
         "Sugar Apple"
     }
 
@@ -224,4 +223,3 @@ local Section = Tab:NewSection("Toggle UI Script")
 Section:NewKeybind("Toggle UI", "Press X to toggle UI", Enum.KeyCode.X, function()
 	Library:ToggleUI()
 end)
-
