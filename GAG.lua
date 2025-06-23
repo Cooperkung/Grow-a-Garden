@@ -56,7 +56,7 @@ local buygear = false
 local function Gear()
     local gears = {
         "Watering Can", "Trowel", "Recall Wrench", "Basic Sprinkler", "Advanced Sprinkler",
-        "Godly Sprinkler", "Lightning Rod", "Master Sprinkler"
+        "Godly Sprinkler", "Lightning Rod", "Tanning Mirror", "Friendship Pot", "Master Sprinkler"
     }
 
     for _, gear in pairs(gears) do
