@@ -8,6 +8,7 @@ local SELLPOS = CFrame.new(86.5854721069336, 2.999999761581421, 0.42678427696228
 local GEARPOS = CFrame.new(-284.4152526855469, 2.999999761581421, -32.97789764404297)
 local CRATEPOS = CFrame.new(-285.00555419921875, 2.999999761581421, -15.64926815032959)
 local EGGPOS = CFrame.new(-285.143310546875, 2.999999761581421, -0.8999100923538208)
+local EVENTPOS = CFrame.new(-105.24102020263672, 4.400012493133545, -9.34919261932373)
 
 
 local buyfruit = false 
@@ -215,6 +216,25 @@ Section:NewButton("Egg Shop", "Teleport to egg shop", function()
     TP(EGGPOS)
 end)
 
+Section:NewButton("Event", "Teleport to event", function()
+    print("Clicked")
+    TP(EVENTPOS)
+end)
+
+
+--Event
+local Tab = Window:NewTab("Events")
+local Section = Tab:NewSection("Summer Event")
+
+Section:NewButton("Send All Fruit to Event", "Auto Event Claim", function()
+    print("Clicked")
+    local args = {
+        "SubmitAllPlants"
+    }
+    game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("SummerHarvestRemoteEvent"):FireServer(unpack(args))
+    
+end)
+
 
 --UI TOGGLE
 local Tab = Window:NewTab("Miscellaneous")
@@ -222,4 +242,16 @@ local Section = Tab:NewSection("Toggle UI Script")
 
 Section:NewKeybind("Toggle UI", "Press X to toggle UI", Enum.KeyCode.X, function()
 	Library:ToggleUI()
+end)
+
+local Section = Tab:NewSection("Admin Section")
+
+Section:NewButton("Copy Position", "Copy Cframe", function()
+    print("Clicked")
+    setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.Position))
+end)
+
+Section:NewButton("fireproximityprompt", "solve E button", function()
+    print("Clicked")
+    setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.Position))
 end)
